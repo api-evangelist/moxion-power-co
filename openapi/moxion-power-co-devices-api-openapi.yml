@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  title: Moxion Power Developer Device Faults Devices API
+  version: v1
+  description: 'REST API sharing resources and telemetry about an organization''s Moxion Mobile Power Units (MPUs): device listing/details, GPS location, time-series device metrics, active fault codes, and AEMP 2.0 (ISO 15143-3 v.20190501) compliant fleet-snapshot endpoints.'
+  contact:
+    name: Moxion Power Support
+    email: help@moxionpower.com
+    url: https://developer.moxionpower.com
+servers:
+- url: http://api.moxionpower.com/developer/v1
+  description: Production (per the authentication guide curl example)
+security:
+- bearerAuth: []
+tags:
+- name: Devices
+paths:
+  /devices:
+    get:
+      operationId: DevicesController_listDevices
+      tags:
+      - Devices
+      summary: List Devices
+      description: Lists details about all devices belonging to an Organization.
+      responses:
+        '200':
+          description: A list of devices belonging to the organization.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /devices/{deviceId}:
+    get:
+      operationId: DevicesController_getDevice
+      tags:
+      - Devices
+      summary: Get Device Details
+      description: Returns the details of a single device.
+      parameters:
+      - $ref: '#/components/parameters/DeviceId'
+      responses:
+        '200':
+          description: Details of a single device.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+components:
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+    RateLimited:
+      description: Rate limit or data quota exceeded.
+    Unauthorized:
+      description: Missing or invalid bearer token.
+  parameters:
+    DeviceId:
+      name: deviceId
+      in: path
+      required: true
+      description: Identifier of the Mobile Power Unit device.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: API key issued to a Service Account, sent as the Authorization header with a `bearer` prefix. Service Accounts and their permissions are provisioned by Moxion personnel.
+x-generated: '2026-07-20'
+x-method: generated
+x-source: https://developer.moxionpower.com/llms.txt
+x-note: Faithfully generated from Moxion Power's published developer documentation (llms.txt operation index, authentication guide, device-metrics and device-faults guides). Operation summaries/descriptions are verbatim from the docs; path templates are inferred from REST resource naming and marked x-inferred where not published verbatim. Not harvested from a provider spec (the ReadMe-hosted OpenAPI is behind bot protection). The company filed for bankruptcy in August 2024.

@@ -1,0 +1,98 @@
+openapi: 3.0.3
+info:
+  title: Moxion Power Developer Device Faults Device Location API
+  version: v1
+  description: 'REST API sharing resources and telemetry about an organization''s Moxion Mobile Power Units (MPUs): device listing/details, GPS location, time-series device metrics, active fault codes, and AEMP 2.0 (ISO 15143-3 v.20190501) compliant fleet-snapshot endpoints.'
+  contact:
+    name: Moxion Power Support
+    email: help@moxionpower.com
+    url: https://developer.moxionpower.com
+servers:
+- url: http://api.moxionpower.com/developer/v1
+  description: Production (per the authentication guide curl example)
+security:
+- bearerAuth: []
+tags:
+- name: Device Location
+paths:
+  /devices/{deviceId}/locations:
+    x-inferred: path
+    get:
+      operationId: DeviceLocationController_listLocations
+      tags:
+      - Device Location
+      summary: Get Device Locations
+      description: Gets a set of Timestamped Locations for a device. The time range of locations is specified with the start and end parameters, including start and excluding end - [start, end). The max duration cannot exceed 1 day.
+      parameters:
+      - $ref: '#/components/parameters/DeviceId'
+      - $ref: '#/components/parameters/Start'
+      - $ref: '#/components/parameters/End'
+      responses:
+        '200':
+          description: Timestamped locations for the device in the given range.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /devices/{deviceId}/locations/latest:
+    x-inferred: path
+    get:
+      operationId: DeviceLocationController_getLatestLocation
+      tags:
+      - Device Location
+      summary: Get Latest Device Location
+      description: Returns the most recent Timestamped Location for the specified device.
+      parameters:
+      - $ref: '#/components/parameters/DeviceId'
+      responses:
+        '200':
+          description: The most recent timestamped location.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+components:
+  responses:
+    RateLimited:
+      description: Rate limit or data quota exceeded.
+    NotFound:
+      description: The requested resource was not found.
+    Unauthorized:
+      description: Missing or invalid bearer token.
+  parameters:
+    End:
+      name: end
+      in: query
+      required: true
+      description: Exclusive end of the time range (ISO 8601). Range [start, end); max duration 1 day.
+      schema:
+        type: string
+        format: date-time
+    Start:
+      name: start
+      in: query
+      required: true
+      description: Inclusive start of the time range (ISO 8601). Range [start, end); max duration 1 day.
+      schema:
+        type: string
+        format: date-time
+    DeviceId:
+      name: deviceId
+      in: path
+      required: true
+      description: Identifier of the Mobile Power Unit device.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: API key issued to a Service Account, sent as the Authorization header with a `bearer` prefix. Service Accounts and their permissions are provisioned by Moxion personnel.
+x-generated: '2026-07-20'
+x-method: generated
+x-source: https://developer.moxionpower.com/llms.txt
+x-note: Faithfully generated from Moxion Power's published developer documentation (llms.txt operation index, authentication guide, device-metrics and device-faults guides). Operation summaries/descriptions are verbatim from the docs; path templates are inferred from REST resource naming and marked x-inferred where not published verbatim. Not harvested from a provider spec (the ReadMe-hosted OpenAPI is behind bot protection). The company filed for bankruptcy in August 2024.

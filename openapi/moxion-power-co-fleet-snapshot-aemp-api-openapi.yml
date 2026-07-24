@@ -1,0 +1,77 @@
+openapi: 3.0.3
+info:
+  title: Moxion Power Developer Device Faults Fleet Snapshot (AEMP) API
+  version: v1
+  description: 'REST API sharing resources and telemetry about an organization''s Moxion Mobile Power Units (MPUs): device listing/details, GPS location, time-series device metrics, active fault codes, and AEMP 2.0 (ISO 15143-3 v.20190501) compliant fleet-snapshot endpoints.'
+  contact:
+    name: Moxion Power Support
+    email: help@moxionpower.com
+    url: https://developer.moxionpower.com
+servers:
+- url: http://api.moxionpower.com/developer/v1
+  description: Production (per the authentication guide curl example)
+security:
+- bearerAuth: []
+tags:
+- name: Fleet Snapshot (AEMP)
+paths:
+  /fleet/snapshot:
+    x-inferred: path
+    get:
+      operationId: FleetSnapshotController_listEquipmentAempSnapshot
+      tags:
+      - Fleet Snapshot (AEMP)
+      summary: AEMP Fleet Snapshot
+      description: Get the AEMP 2.0 (ISO 15143-3 v.20190501) compliant Fleet Snapshot. Note that equipment is paged and returned in order of creation time. Snapshot timestamp is consistent within a single page but is not guaranteed across pages. Response type is JSON.
+      responses:
+        '200':
+          description: AEMP 2.0 compliant fleet snapshot (paged).
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /fleet/snapshot/extended:
+    x-inferred: path
+    get:
+      operationId: FleetSnapshotController_listEquipmentAempSnapshotExtended
+      tags:
+      - Fleet Snapshot (AEMP)
+      summary: AEMP Extended Fleet Snapshot
+      description: Get the extended AEMP 2.0 Fleet Snapshot. This endpoint differs from the standard AEMP fleet snapshot by including data from outside of the standard AEMP spec, but in the same snapshot format. Equipment is paged and returned in order of creation time. Response type is JSON.
+      responses:
+        '200':
+          description: Extended AEMP 2.0 fleet snapshot (paged).
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /fleet/faults/snapshot:
+    x-inferred: path
+    get:
+      operationId: FleetFaultSnapshotController_listEquipmentAempFaultSnapshot
+      tags:
+      - Fleet Snapshot (AEMP)
+      summary: AEMP Extended Fleet Faults Snapshot
+      description: Get the extended AEMP 2.0 Fleet Fault Snapshot. This endpoint extends AEMP 2.0 outside of its specification as faults are not typically included as a fleet snapshot; the API format follows that of the AEMP Snapshot. Returns an array of Equipment and their associated ACTIVE Faults; a zero-length Faults array suggests no faults are currently known. Equipment is paged and returned in order of creation time. Response type is JSON.
+      responses:
+        '200':
+          description: Extended AEMP fleet fault snapshot (paged).
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+components:
+  responses:
+    RateLimited:
+      description: Rate limit or data quota exceeded.
+    Unauthorized:
+      description: Missing or invalid bearer token.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: API key issued to a Service Account, sent as the Authorization header with a `bearer` prefix. Service Accounts and their permissions are provisioned by Moxion personnel.
+x-generated: '2026-07-20'
+x-method: generated
+x-source: https://developer.moxionpower.com/llms.txt
+x-note: Faithfully generated from Moxion Power's published developer documentation (llms.txt operation index, authentication guide, device-metrics and device-faults guides). Operation summaries/descriptions are verbatim from the docs; path templates are inferred from REST resource naming and marked x-inferred where not published verbatim. Not harvested from a provider spec (the ReadMe-hosted OpenAPI is behind bot protection). The company filed for bankruptcy in August 2024.
