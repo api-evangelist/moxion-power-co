@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.moxionpower.com/docs/device-metrics
+description: >-
+  Device metric vocabulary for Moxion Mobile Power Units. Each device
+  periodically captures and uploads time-series metrics about its operating
+  conditions, fetched via the Get Device Metrics endpoint
+  (DeviceMetricsController_listMetrics). All values are floats.
+metrics:
+- { name: pack.soc, unit: "%", value_type: float, description: "Battery pack state of charge percentage. Ranges [0.0, 100.0]." }
+- { name: pack.voltage, unit: Volt, value_type: float, description: "Internal battery pack voltage (NOT an output voltage)." }
+- { name: pack.power_net, unit: Watt, value_type: float, description: "Net power for the device: charge (input) minus load (output). Negative = discharging (supplying load); positive = charging." }
+- { name: pack.energy_available, unit: Watt-hour, value_type: float, description: "Energy remaining available for the device; subject to operating and environmental conditions." }
+- { name: pack.energy_capacity, unit: Watt-hour, value_type: float, description: "Energy capacity when fully charged; subject to operating and environmental conditions." }
+- { name: pack.energy_charge_total, unit: Watt-hour, value_type: float, description: "Total energy input (charged) to the device. Lifetime monotonic counter; may wrap to 0." }
+- { name: pack.energy_discharge_total, unit: Watt-hour, value_type: float, description: "Total energy output (discharged) from the device. Lifetime monotonic counter; may wrap to 0." }
+- { name: pack.time_to_empty_sec, unit: Second, value_type: float, description: "Time until fully discharged. Only valid when discharge power exceeds charge power." }
+- { name: pack.time_to_full_sec, unit: Second, value_type: float, description: "Time until fully charged. Only valid when charge power exceeds discharge power." }
+- { name: input.power_charge, unit: Watt, value_type: float, description: "Power being supplied to (charging) the device." }
+- { name: output.line_1.voltage, unit: Volt, value_type: float, description: "Line-to-neutral output voltage on line 1 of three-phase output." }
+- { name: output.line_2.voltage, unit: Volt, value_type: float, description: "Line-to-neutral output voltage on line 2 of three-phase output." }
+- { name: output.line_3.voltage, unit: Volt, value_type: float, description: "Line-to-neutral output voltage on line 3 of three-phase output." }
+- { name: output.line_1.current, unit: Amp, value_type: float, description: "Output current on line 1 of three-phase output." }
+- { name: output.line_2.current, unit: Amp, value_type: float, description: "Output current on line 2 of three-phase output." }
+- { name: output.line_3.current, unit: Amp, value_type: float, description: "Output current on line 3 of three-phase output." }
+- { name: output.neutral.current, unit: Amp, value_type: float, description: "Output current on the neutral line of three-phase output." }
+- { name: output.line_1.power, unit: Watt, value_type: float, description: "Output power on line 1 of three-phase output." }
+- { name: output.line_2.power, unit: Watt, value_type: float, description: "Output power on line 2 of three-phase output." }
+- { name: output.line_3.power, unit: Watt, value_type: float, description: "Output power on line 3 of three-phase output." }
+- { name: output.neutral.power, unit: Watt, value_type: float, description: "Output power on the neutral line of three-phase output." }
+- { name: cellular.signal_strength, unit: "%", value_type: float, description: "Cellular connection signal strength. Ranges [0.0, 100.0]." }

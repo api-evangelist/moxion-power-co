@@ -1,8 +1,19 @@
 aid: moxion-power-co
 name: Moxion Power Co
-description: Moxion Power Co is a company surfaced as a portfolio company of y-combinator and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Moxion Power Co is a mobile energy storage company (a Y Combinator alum) that
+  builds trailer-mounted, zero-emission Mobile Power Units (MPUs) used as
+  quiet, clean replacements for diesel generators on construction sites, film
+  productions, events, and grid-support jobs. Moxion operated a REST Developer
+  API that let fleet operators fetch device metadata, real-time GPS location,
+  and time-series telemetry (state of charge, pack voltage, net/output power,
+  energy available/capacity, cellular signal) for their Mobile Power Units,
+  along with active fault codes. The API additionally exposed AEMP 2.0
+  (ISO 15143-3 v.20190501) compliant fleet-snapshot endpoints so telematics
+  platforms could ingest Moxion equipment alongside other heavy-equipment
+  fleets. Authentication used bearer tokens issued to Service Accounts. Note
+  the company filed for bankruptcy in August 2024; the developer documentation
+  remains online but the API host may no longer be operational.
 url: https://raw.githubusercontent.com/api-evangelist/moxion-power-co/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,14 +21,163 @@ x-backed-by:
 - y-combinator
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://files.readme.io/6ee0605-small-Moxion_Icon_Logo_PNG.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Energy Storage
+- Mobile Power
+- Battery
+- Telemetry
+- IoT
+- Fleet Management
+- Clean Energy
+- Construction
+- Device Metrics
+apis:
+- aid: moxion-power-co:moxion-power-co-device-faults-api
+  name: Moxion Power Co Device Faults API
+  description: The Device Faults API from Moxion Power Co — 1 operation(s) for device faults.
+  humanURL: https://developer.moxionpower.com/docs/getting-started
+  baseURL: http://api.moxionpower.com/developer/v1
+  tags:
+  - Device Faults
+  properties:
+  - type: OpenAPI
+    url: openapi/moxion-power-co-device-faults-api-openapi.yml
+  - type: Documentation
+    url: https://developer.moxionpower.com/docs
+  - type: APIReference
+    url: https://developer.moxionpower.com/reference
+- aid: moxion-power-co:moxion-power-co-device-location-api
+  name: Moxion Power Co Device Location API
+  description: The Device Location API from Moxion Power Co — 2 operation(s) for device location.
+  humanURL: https://developer.moxionpower.com/docs/getting-started
+  baseURL: http://api.moxionpower.com/developer/v1
+  tags:
+  - Device Location
+  properties:
+  - type: OpenAPI
+    url: openapi/moxion-power-co-device-location-api-openapi.yml
+  - type: Documentation
+    url: https://developer.moxionpower.com/docs
+  - type: APIReference
+    url: https://developer.moxionpower.com/reference
+- aid: moxion-power-co:moxion-power-co-device-metrics-api
+  name: Moxion Power Co Device Metrics API
+  description: The Device Metrics API from Moxion Power Co — 1 operation(s) for device metrics.
+  humanURL: https://developer.moxionpower.com/docs/getting-started
+  baseURL: http://api.moxionpower.com/developer/v1
+  tags:
+  - Device Metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/moxion-power-co-device-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://developer.moxionpower.com/docs
+  - type: APIReference
+    url: https://developer.moxionpower.com/reference
+- aid: moxion-power-co:moxion-power-co-devices-api
+  name: Moxion Power Co Devices API
+  description: The Devices API from Moxion Power Co — 2 operation(s) for devices.
+  humanURL: https://developer.moxionpower.com/docs/getting-started
+  baseURL: http://api.moxionpower.com/developer/v1
+  tags:
+  - Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/moxion-power-co-devices-api-openapi.yml
+  - type: Documentation
+    url: https://developer.moxionpower.com/docs
+  - type: APIReference
+    url: https://developer.moxionpower.com/reference
+- aid: moxion-power-co:moxion-power-co-fleet-snapshot-aemp-api
+  name: Moxion Power Co Fleet Snapshot (AEMP) API
+  description: >-
+    The Fleet Snapshot (AEMP) API from Moxion Power Co — 3 operation(s) for fleet snapshot (aemp).
+  humanURL: https://developer.moxionpower.com/docs/getting-started
+  baseURL: http://api.moxionpower.com/developer/v1
+  tags:
+  - Fleet Snapshot (AEMP)
+  properties:
+  - type: OpenAPI
+    url: openapi/moxion-power-co-fleet-snapshot-aemp-api-openapi.yml
+  - type: Documentation
+    url: https://developer.moxionpower.com/docs
+  - type: APIReference
+    url: https://developer.moxionpower.com/reference
+- aid: moxion-power-co:moxion-power-co-organizations-api
+  name: Moxion Power Co Organizations API
+  description: The Organizations API from Moxion Power Co — 1 operation(s) for organizations.
+  humanURL: https://developer.moxionpower.com/docs/getting-started
+  baseURL: http://api.moxionpower.com/developer/v1
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/moxion-power-co-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.moxionpower.com/docs
+  - type: APIReference
+    url: https://developer.moxionpower.com/reference
+common:
+- type: DeveloperPortal
+  url: https://developer.moxionpower.com
+- type: Documentation
+  url: https://developer.moxionpower.com/docs
+- type: APIReference
+  url: https://developer.moxionpower.com/reference
+- type: GettingStarted
+  url: https://developer.moxionpower.com/docs/getting-started
+- type: Authentication
+  url: authentication/moxion-power-co-authentication.yml
+- type: SignUp
+  url: https://developer.moxionpower.com/login
+- type: Website
+  url: https://www.moxionpower.com
+- type: LLMsTxt
+  url: llms/moxion-power-co-llms.txt
+- type: ErrorCatalog
+  url: errors/moxion-power-co-fault-codes.yml
+- type: Vocabulary
+  url: vocabulary/moxion-power-co-metrics.yml
+- type: Conformance
+  url: conformance/moxion-power-co-conformance.yml
+- type: Conventions
+  url: conventions/moxion-power-co-conventions.yml
+- type: Lifecycle
+  url: lifecycle/moxion-power-co-lifecycle.yml
+- type: DataModel
+  url: data-model/moxion-power-co-data-model.yml
+- type: MCPServer
+  url: mcp/moxion-power-co-mcp.yml
+- type: Overlay
+  url: overlays/moxion-power-co-openapi-overlay.yaml
+- type: DomainSecurity
+  url: security/moxion-power-co-domain-security.yml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1

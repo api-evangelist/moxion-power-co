@@ -1,0 +1,24 @@
+{
+  "provider": "moxion-power-co",
+  "sources": [
+    "moxion-power-co-device-faults-api-openapi.yml",
+    "moxion-power-co-device-location-api-openapi.yml",
+    "moxion-power-co-device-metrics-api-openapi.yml",
+    "moxion-power-co-devices-api-openapi.yml",
+    "moxion-power-co-fleet-snapshot-aemp-api-openapi.yml",
+    "moxion-power-co-organizations-api-openapi.yml"
+  ],
+  "outputs": [
+    "moxion-power-co-device-faults-api-openapi.yml",
+    "moxion-power-co-device-location-api-openapi.yml",
+    "moxion-power-co-device-metrics-api-openapi.yml",
+    "moxion-power-co-devices-api-openapi.yml",
+    "moxion-power-co-fleet-snapshot-aemp-api-openapi.yml",
+    "moxion-power-co-organizations-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

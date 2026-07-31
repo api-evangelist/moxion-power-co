@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/moxion-power-co-openapi.yml
+note: >-
+  No official hosted/remote MCP server was found for Moxion Power. This is a
+  candidate tool list derived one-to-one from the documented Developer API
+  operations, provided as a starting point for an MCP wrapper.
+server:
+  name: moxion-power
+  transport: http
+tools:
+- { name: list_organizations, description: Lists details about the authorized Organizations., source_operation: openapi/moxion-power-co-openapi.yml#OrganizationsController_listOrganizations }
+- { name: list_devices, description: Lists all devices belonging to an Organization., source_operation: openapi/moxion-power-co-openapi.yml#DevicesController_listDevices }
+- { name: get_device, description: Returns the details of a single device., source_operation: openapi/moxion-power-co-openapi.yml#DevicesController_getDevice }
+- { name: get_device_metrics, description: Gets timestamped metrics for a device over a time range (max 1 day)., source_operation: openapi/moxion-power-co-openapi.yml#DeviceMetricsController_listMetrics }
+- { name: get_device_locations, description: Gets timestamped locations for a device over a time range (max 1 day)., source_operation: openapi/moxion-power-co-openapi.yml#DeviceLocationController_listLocations }
+- { name: get_latest_device_location, description: Returns the most recent timestamped location for a device., source_operation: openapi/moxion-power-co-openapi.yml#DeviceLocationController_getLatestLocation }
+- { name: get_device_faults, description: Gets timestamped faults for a device over a time range (max 1 day)., source_operation: openapi/moxion-power-co-openapi.yml#DeviceFaultsController_listFaults }
+- { name: get_aemp_fleet_snapshot, description: AEMP 2.0 (ISO 15143-3) compliant fleet snapshot., source_operation: openapi/moxion-power-co-openapi.yml#FleetSnapshotController_listEquipmentAempSnapshot }
+- { name: get_aemp_fleet_snapshot_extended, description: Extended AEMP 2.0 fleet snapshot with additional data., source_operation: openapi/moxion-power-co-openapi.yml#FleetSnapshotController_listEquipmentAempSnapshotExtended }
+- { name: get_aemp_fleet_fault_snapshot, description: Extended AEMP fleet fault snapshot (active faults per equipment)., source_operation: openapi/moxion-power-co-openapi.yml#FleetFaultSnapshotController_listEquipmentAempFaultSnapshot }

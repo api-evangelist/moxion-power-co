@@ -1,0 +1,14 @@
+generated: '2026-07-20'
+method: generated
+skills:
+- file: moxion-power-co-monitor-fleet-telemetry.md
+  name: Monitor Moxion Mobile Power Unit fleet telemetry
+  api: openapi/moxion-power-co-openapi.yml
+  operations:
+  - OrganizationsController_listOrganizations
+  - DevicesController_listDevices
+  - DevicesController_getDevice
+  - DeviceLocationController_getLatestLocation
+  - DeviceMetricsController_listMetrics
+  - DeviceFaultsController_listFaults
+  - FleetFaultSnapshotController_listEquipmentAempFaultSnapshot

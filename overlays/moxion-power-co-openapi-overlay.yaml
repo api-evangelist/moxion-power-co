@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Moxion Power Developer API
+  version: 1.0.0
+extends: openapi/moxion-power-co-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-conformance: [aemp-2.0, iso-15143-3]
+    x-apievangelist-note: >-
+      Read-only telemetry API for Moxion Mobile Power Units. Provider filed for
+      bankruptcy August 2024; API likely at end-of-life.
+- target: $.info
+  update:
+    x-artifacts:
+      fault_codes: errors/moxion-power-co-fault-codes.yml
+      metric_vocabulary: vocabulary/moxion-power-co-metrics.yml
+      conventions: conventions/moxion-power-co-conventions.yml
+      data_model: data-model/moxion-power-co-data-model.yml

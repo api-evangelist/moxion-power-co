@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.moxionpower.com/docs/getting-started
+description: Cross-cutting request/response conventions for the Moxion Power Developer API.
+authentication:
+  style: bearer-token
+  header: Authorization
+  prefix: "bearer "
+  ref: authentication/moxion-power-co-authentication.yml
+time_range_query:
+  params: [start, end]
+  semantics: "Half-open interval [start, end) — start inclusive, end exclusive."
+  max_duration: "1 day"
+  applies_to: [DeviceFaultsController_listFaults, DeviceLocationController_listLocations, DeviceMetricsController_listMetrics]
+pagination:
+  style: paged
+  order: "Equipment returned in order of creation time."
+  notes: >-
+    On AEMP fleet-snapshot endpoints the snapshot timestamp is consistent within
+    a single page but is not guaranteed across pages.
+rate_limiting:
+  rate_limit: "Governs how many requests can be made within a short window (bursts)."
+  quota: "Limits how many rows of data can be returned over a given timespan; each device subscription includes a base quota."
+  exceeded_status: 429
+idempotency:
+  supported: false
+  note: "No idempotency-key contract documented; the API surface is read-only (GET only)."
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /developer/v1
+error_signaling:
+  transport: http-status
+  device_faults: errors/moxion-power-co-fault-codes.yml
+  ref: lifecycle/moxion-power-co-lifecycle.yml

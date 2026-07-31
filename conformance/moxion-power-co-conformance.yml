@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.moxionpower.com/llms.txt
+standards:
+- id: aemp-2.0
+  name: AEMP 2.0 Telematics Standard (ISO 15143-3 v.20190501)
+  conforms: true
+  evidence: >-
+    Fleet Snapshot endpoint (FleetSnapshotController_listEquipmentAempSnapshot)
+    is documented as "AEMP 2.0 (ISO 15143-3 v.20190501) compliant Fleet
+    Snapshot"; extended snapshot and extended fault-snapshot endpoints follow
+    the same AEMP snapshot format.
+- id: iso-15143-3
+  name: ISO 15143-3 (Earth-moving machinery — worksite data exchange, telematics)
+  conforms: true
+  evidence: AEMP 2.0 is standardized as ISO 15143-3 v.20190501; cited in the fleet-snapshot endpoints.
+- id: oauth2
+  conforms: false
+  evidence: Authentication is bearer API-key tokens issued to Service Accounts, not OAuth 2.0.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json error envelope documented; errors surface as HTTP status codes (e.g. 429) and a device-fault registry.

@@ -1,0 +1,66 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.moxionpower.com/docs/device-faults
+kind: device-fault-registry
+description: >-
+  Device fault codes emitted by Moxion Mobile Power Units. Faults represent
+  abnormal device state or operation; the device emits a fault with a specific
+  code when it detects the associated conditions. Current active faults are
+  fetched from the Fleet Faults Snapshot API
+  (FleetFaultSnapshotController_listEquipmentAempFaultSnapshot) or the
+  per-device faults endpoint (DeviceFaultsController_listFaults). The
+  moxion_severity field indicates whether Moxion considers the fault CRITICAL
+  or INFO; each user/use case may define "critical" differently.
+faults:
+- { id: PCS_ACTIVE, name: PCS Active Fault, moxion_severity: INFO, description: "The PCS system was active and encountered a fault resulting in shutdown (latched until mode switch = standby)." }
+- { id: PCS_STARTUP, name: PCS Startup Fault, moxion_severity: INFO, description: "The PCS system encountered a fault during startup sequence (latched until mode switch = standby)." }
+- { id: PCS_BRIDGE_OVER_TEMPERATURE, name: PCS Bridge Over Temperature Fault, moxion_severity: INFO, description: "The PCS is overheating due to hot PCS H-bridge circuit. PCS will shutdown." }
+- { id: PCS_INDUCTOR_OVER_TEMPERATURE, name: PCS Inductor Over Temperature Fault, moxion_severity: INFO, description: "The PCS is overheating due to hot PCS inductor circuit. PCS will shutdown." }
+- { id: PCS_AFE, name: PCS AFE Fault, moxion_severity: INFO, description: "An individual AFE is reporting a low level fault. PCS will shutdown." }
+- { id: BMS_ABOVE_MAX_CELL_VOLTAGE, name: BMS Above Maximum Cell Voltage, moxion_severity: CRITICAL, description: "The BMS is reporting a voltage above programmed maximums. HV will be disabled." }
+- { id: BMS_ABOVE_MAX_PACK_VOLTAGE, name: BMS Above Maximum Pack Voltage, moxion_severity: CRITICAL, description: "The BMS is reporting a voltage above programmed maximums. HV will be disabled." }
+- { id: BMS_BELOW_MIN_CELL_VOLTAGE, name: BMS Below Minimum Cell Voltage, moxion_severity: CRITICAL, description: "The BMS is reporting a voltage below programmed minimums. HV will be disabled." }
+- { id: BMS_BELOW_MIN_PACK_VOLTAGE, name: BMS Below Minimum Pack Voltage, moxion_severity: CRITICAL, description: "The BMS is reporting a voltage below programmed minimums. HV will be disabled." }
+- { id: BMS_STALE, name: BMS Stale, moxion_severity: CRITICAL, description: "The BMS is not reporting on internal system bus as expected. HV will be disabled." }
+- { id: BMS_DTC, name: BMS DTC, moxion_severity: INFO, description: "The BMS has indicated a fault." }
+- { id: E_STOP, name: E STOP, moxion_severity: INFO, description: "The system emergency stop button has been pressed." }
+- { id: HVIL_OPEN, name: HV Interlock Open, moxion_severity: CRITICAL, description: "The HV voltage interlock circuit is not complete. HV will be disabled." }
+- { id: HVIL_INTERMEDIATE_OPEN, name: HV Interlock Intermediate Open, moxion_severity: INFO, description: "The HV voltage interlock circuit is not complete. HV will be disabled." }
+- { id: BMS_OVER_TEMP_WARNING, name: BMS Over Temperature Warning, moxion_severity: INFO, description: "The BMS is reporting a battery temperature above warning threshold (45C)." }
+- { id: BMS_OVER_TEMP_CRITICAL, name: BMS Over Temperature Critical, moxion_severity: INFO, description: "The BMS is reporting a battery temperature above critical threshold (50C). PCS will be disabled." }
+- { id: BMS_OVER_TEMP_SHUTDOWN, name: BMS Over Temperature Shutdown, moxion_severity: CRITICAL, description: "The BMS is reporting a battery temperature above shutdown threshold (55C). HV will be disabled." }
+- { id: BMS_UNDER_TEMP, name: BMS Under Temperature, moxion_severity: INFO, description: "The BMS is reporting a battery temperature below shutdown threshold (-5C). HV will be disabled." }
+- { id: PCS_SOC_TOO_LOW, name: PCS SOC Too Low, moxion_severity: INFO, description: "Battery SOC is too low for PCS operation. PCS will be disabled." }
+- { id: OBC_1, name: OBC 1 Fault, moxion_severity: INFO, description: "System OBC has a fault. AC charging may be affected." }
+- { id: OBC_2, name: OBC 2 Fault, moxion_severity: INFO, description: "System OBC has a fault. AC charging may be affected." }
+- { id: OBC_3, name: OBC 3 Fault, moxion_severity: INFO, description: "System OBC has a fault. AC charging may be affected." }
+- { id: EVCC_STALE, name: EVCC Stale, moxion_severity: INFO, description: "Charge Controller is not communicating on system bus. Unit unable to charge." }
+- { id: PCS_CELL_VOLTAGE_TOO_LOW, name: PCS Cell Voltage Too Low, moxion_severity: INFO, description: "Battery cell voltage is too low for PCS operation. PCS will be disabled." }
+- { id: CCS_PLUG_OVER_TEMP, name: CCS Plug Over Temp, moxion_severity: INFO, description: "MP-75 CCS Plug temperature limits exceeded. Charging will be disabled." }
+- { id: IVTS_INVALID, name: IVTS Invalid, moxion_severity: INFO, description: "System supplementary current sensor reporting invalid information." }
+- { id: HVIVTS_CURRENT_DISAGREE, name: HV IVT Current Disagree, moxion_severity: INFO, description: "IVT current disagrees with BMS current measurements. DC charging will be disabled." }
+- { id: HVIVTS_VOLTAGE_DISAGREE, name: HV IVT Voltage Disagree, moxion_severity: INFO, description: "IVT voltage disagrees with BMS voltage measurements. DC charging will be disabled." }
+- { id: OBC_TOTAL_FAILURE, name: OBC Total Failure, moxion_severity: INFO, description: "All three system OBCs have faulted. AC charging will be disabled." }
+- { id: BMS_HV_ISOLATION, name: BMS HV Isolation Fault, moxion_severity: INFO, description: "Orion BMS is reporting a system DC isolation fault." }
+- { id: SERVICE_MODE_ACTIVE, name: Service Mode Active, moxion_severity: CRITICAL, description: "System has been placed in service mode. HV will be disabled." }
+- { id: DCDC_UNDERPERFORMANCE, name: DCDC Underperformance, moxion_severity: INFO, description: "DCDC current lower than expected. LV battery may fail imminently." }
+- { id: BMS_UNEXPECTED_FIRMWARE, name: BMS Unexpected Firmware, moxion_severity: INFO, description: "The BMS is not running the version of firmware expected by central system controller." }
+- { id: AFE1_UNEXPECTED_FIRMWARE, name: AFE1 Unexpected Firmware, moxion_severity: INFO, description: "The AFE1 is not running the version of firmware expected by central system controller." }
+- { id: AFE2_UNEXPECTED_FIRMWARE, name: AFE2 Unexpected Firmware, moxion_severity: INFO, description: "The AFE2 is not running the version of firmware expected by central system controller." }
+- { id: AFE3_UNEXPECTED_FIRMWARE, name: AFE3 Unexpected Firmware, moxion_severity: INFO, description: "The AFE3 is not running the version of firmware expected by central system controller." }
+- { id: AFE4_UNEXPECTED_FIRMWARE, name: AFE4 Unexpected Firmware, moxion_severity: INFO, description: "The AFE4 is not running the version of firmware expected by central system controller." }
+- { id: AFE5_UNEXPECTED_FIRMWARE, name: AFE5 Unexpected Firmware, moxion_severity: INFO, description: "The AFE5 is not running the version of firmware expected by central system controller." }
+- { id: AFE6_UNEXPECTED_FIRMWARE, name: AFE6 Unexpected Firmware, moxion_severity: INFO, description: "The AFE6 is not running the version of firmware expected by central system controller." }
+- { id: AFE7_UNEXPECTED_FIRMWARE, name: AFE7 Unexpected Firmware, moxion_severity: INFO, description: "The AFE7 is not running the version of firmware expected by central system controller." }
+- { id: AFE8_UNEXPECTED_FIRMWARE, name: AFE8 Unexpected Firmware, moxion_severity: INFO, description: "The AFE8 is not running the version of firmware expected by central system controller." }
+- { id: EVCC_UNEXPECTED_FIRMWARE, name: EVCC Unexpected Firmware, moxion_severity: INFO, description: "The EVCC is not running the version of firmware expected by central system controller." }
+- { id: PMC_UNEXPECTED_FIRMWARE, name: PMC Unexpected Firmware, moxion_severity: INFO, description: "The PMC is not running the version of firmware expected by central system controller." }
+- { id: TGU_UNEXPECTED_FIRMWARE, name: TGU Unexpected Firmware, moxion_severity: INFO, description: "The TGU is not running the version of firmware expected by central system controller." }
+- { id: LV_LOW_BATT, name: LV Battery Low, moxion_severity: INFO, description: "System LV battery is reporting an abnormally low voltage. System may go offline soon." }
+- { id: TGU_LOW_BATT, name: TGU Battery Low, moxion_severity: INFO, description: "TGU Battery is lower than expected. System may go offline soon." }
+- { id: DCDC_STALE, name: DCDC Stale, moxion_severity: INFO, description: "DCDC is not reporting on system bus as expected." }
+- { id: PCS_AC_GROUND_FAULT, name: PCS AC Ground Fault, moxion_severity: INFO, description: "PCS is reporting AC ground fault detection. PCS disabled." }
+- { id: PCS_CURRENT_LIMIT, name: PCS Current Limit Exceeded, moxion_severity: INFO, description: "PCS current limits were exceeded for continuous period resulting in PCS shutdown." }
+- { id: PCS_SHUTDOWN, name: PCS Shutdown Fault, moxion_severity: INFO, description: "The PCS system encountered a fault during shutdown sequence (latched until mode switch = standby)." }
+- { id: BMS_CRITICAL, name: BMS Critical Fault, moxion_severity: CRITICAL, description: "BMS detected critical fault condition. HV disabled." }
+- { id: HV_DC_ISOLATION_L2, name: HV DC Isolation L2 Fault, moxion_severity: CRITICAL, description: "The unit has experienced a critical HV isolation event." }

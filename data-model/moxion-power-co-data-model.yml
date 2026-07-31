@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/moxion-power-co-openapi.yml
+description: >-
+  Entity-relationship model derived from the Moxion Power Developer API
+  operations and documentation. An Organization owns Devices (Mobile Power
+  Units); each Device produces time-series Metrics and Locations and emits
+  Faults. AEMP fleet snapshots project Devices as AEMP "Equipment".
+entities:
+- name: Organization
+  description: An authorized tenant/account. Source of scope for a Service Account token.
+  operations: [OrganizationsController_listOrganizations]
+- name: Device
+  description: A Mobile Power Unit (MPU) belonging to an organization.
+  operations: [DevicesController_listDevices, DevicesController_getDevice]
+- name: DeviceMetric
+  description: A timestamped telemetry sample (see vocabulary/moxion-power-co-metrics.yml).
+  operations: [DeviceMetricsController_listMetrics]
+- name: DeviceLocation
+  description: A timestamped GPS location for a device.
+  operations: [DeviceLocationController_listLocations, DeviceLocationController_getLatestLocation]
+- name: DeviceFault
+  description: An active fault emitted by a device (see errors/moxion-power-co-fault-codes.yml).
+  operations: [DeviceFaultsController_listFaults, FleetFaultSnapshotController_listEquipmentAempFaultSnapshot]
+- name: Equipment
+  description: AEMP 2.0 projection of a Device in fleet-snapshot endpoints.
+  operations: [FleetSnapshotController_listEquipmentAempSnapshot, FleetSnapshotController_listEquipmentAempSnapshotExtended]
+relationships:
+- { from: Device, to: Organization, type: belongs_to, via: organization }
+- { from: DeviceMetric, to: Device, type: belongs_to, via: device }
+- { from: DeviceLocation, to: Device, type: belongs_to, via: device }
+- { from: DeviceFault, to: Device, type: belongs_to, via: device }
+- { from: Organization, to: Device, type: has_many, via: devices }
+- { from: Device, to: DeviceMetric, type: has_many, via: metrics }
+- { from: Device, to: DeviceLocation, type: has_many, via: locations }
+- { from: Device, to: DeviceFault, type: has_many, via: faults }
+- { from: Equipment, to: Device, type: has_one, via: device }

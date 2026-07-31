@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: derived
+source: https://developer.moxionpower.com/docs/getting-started
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /developer/v1
+  docs: https://developer.moxionpower.com/docs/getting-started
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+status_page: null
+deprecated_operations: []
+notes:
+- >-
+  No published deprecation policy, SLA, or status page was found on the
+  developer portal.
+- >-
+  Moxion Power Co filed for bankruptcy in August 2024; the developer
+  documentation remains online but the API is likely at end-of-life.

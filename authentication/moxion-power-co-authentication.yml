@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.moxionpower.com/docs/authentication
+docs: https://developer.moxionpower.com/docs/authentication
+summary:
+  types: [http]
+  http_schemes: [bearer]
+  api_key_in: []
+  oauth2_flows: []
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    An API key issued to a Service Account, sent in the Authorization header
+    with a `bearer ` prefix, e.g.
+    `Authorization: bearer <YOUR TOKEN HERE>`.
+  sources: [openapi/moxion-power-co-openapi.yml]
+notes:
+- >-
+  Before an API key can be created, an identity in the form of a Service Account
+  must exist. Service Accounts are created by Account Admins in the API tab of
+  the Settings page.
+- >-
+  By default Service Accounts have no roles or permissions; these must currently
+  be set up manually by Moxion personnel. Permissions and the Account Admin role
+  are requested via an account manager or help@moxionpower.com.
+example_request: |-
+  curl 'http://api.moxionpower.com/developer/v1/organizations' \
+    -H 'Authorization: bearer <YOUR TOKEN HERE>'

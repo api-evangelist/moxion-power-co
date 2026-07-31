@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: searched
+note: >-
+  Probed the /.well-known/ discovery surface on the developer portal host. No
+  documents were served (all 404). The API host api.moxionpower.com resolves via
+  CNAME to an AWS Elastic Load Balancer but was not probed for well-known paths
+  (documented base path is /developer/v1, no well-known convention). The primary
+  website www.moxionpower.com currently serves an expired TLS certificate.
+hosts:
+- host: https://developer.moxionpower.com
+  documents:
+  - { path: /.well-known/security.txt, status: 404 }
+  - { path: /.well-known/openid-configuration, status: 404 }
+  - { path: /.well-known/oauth-authorization-server, status: 404 }
+  - { path: /.well-known/api-catalog, status: 404 }
+  - { path: /.well-known/ai-plugin.json, status: 404 }
