@@ -1,19 +1,14 @@
 aid: moxion-power-co
 name: Moxion Power Co
-description: >-
-  Moxion Power Co is a mobile energy storage company (a Y Combinator alum) that
-  builds trailer-mounted, zero-emission Mobile Power Units (MPUs) used as
-  quiet, clean replacements for diesel generators on construction sites, film
-  productions, events, and grid-support jobs. Moxion operated a REST Developer
-  API that let fleet operators fetch device metadata, real-time GPS location,
-  and time-series telemetry (state of charge, pack voltage, net/output power,
-  energy available/capacity, cellular signal) for their Mobile Power Units,
-  along with active fault codes. The API additionally exposed AEMP 2.0
-  (ISO 15143-3 v.20190501) compliant fleet-snapshot endpoints so telematics
-  platforms could ingest Moxion equipment alongside other heavy-equipment
-  fleets. Authentication used bearer tokens issued to Service Accounts. Note
-  the company filed for bankruptcy in August 2024; the developer documentation
-  remains online but the API host may no longer be operational.
+description: Moxion Power Co is a mobile energy storage company (a Y Combinator alum) that builds trailer-mounted,
+  zero-emission Mobile Power Units (MPUs) used as quiet, clean replacements for diesel generators on construction
+  sites, film productions, events, and grid-support jobs. Moxion operated a REST Developer API that let
+  fleet operators fetch device metadata, real-time GPS location, and time-series telemetry (state of charge,
+  pack voltage, net/output power, energy available/capacity, cellular signal) for their Mobile Power Units,
+  along with active fault codes. The API additionally exposed AEMP 2.0 (ISO 15143-3 v.20190501) compliant
+  fleet-snapshot endpoints so telematics platforms could ingest Moxion equipment alongside other heavy-equipment
+  fleets. Authentication used bearer tokens issued to Service Accounts. Note the company filed for bankruptcy
+  in August 2024; the developer documentation remains online but the API host may no longer be operational.
 url: https://raw.githubusercontent.com/api-evangelist/moxion-power-co/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -36,7 +31,7 @@ accessModel:
 image: https://files.readme.io/6ee0605-small-Moxion_Icon_Logo_PNG.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-08-08'
 tags:
 - Company
 - Energy Storage
@@ -107,8 +102,8 @@ apis:
     url: https://developer.moxionpower.com/reference
 - aid: moxion-power-co:moxion-power-co-fleet-snapshot-aemp-api
   name: Moxion Power Co Fleet Snapshot (AEMP) API
-  description: >-
-    The Fleet Snapshot (AEMP) API from Moxion Power Co — 3 operation(s) for fleet snapshot (aemp).
+  description: The Fleet Snapshot (AEMP) API from Moxion Power Co — 3 operation(s) for fleet snapshot
+    (aemp).
   humanURL: https://developer.moxionpower.com/docs/getting-started
   baseURL: http://api.moxionpower.com/developer/v1
   tags:
@@ -171,6 +166,22 @@ common:
   url: security/moxion-power-co-domain-security.yml
 - type: AgentSkill
   url: skills/_index.yml
+- type: GitHub
+  url: https://github.com/moxion-power
+- type: Twitter
+  url: https://twitter.com/MoxionPower
+- type: LinkedIn
+  url: https://www.linkedin.com/company/moxion-power-co
+- type: Crunchbase
+  url: https://www.crunchbase.com/organization/moxion-power-co
+- type: Successor
+  url: https://viridiparente.com/moxion-inquire/
+- type: BankruptcyCoverage
+  url: https://www.latitudemedia.com/news/portable-battery-startup-moxion-is-bankrupt-what-happened/
+- type: AcquisitionCoverage
+  url: https://www.grandviewindependent.com/viridi-powers-into-richmond-replaces-moxion/
+- url: https://viridiparente.com/feed/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -181,3 +192,5 @@ x-enrichment:
   status: enriched
   artifacts_added: 14
   pass: local-v1
+x-merged-from:
+- moxion-power

@@ -1,0 +1,14 @@
+{
+  "repo": "moxion-power",
+  "feeds": [
+    {
+      "source": "https://viridiparente.com/feed/",
+      "feed_url": "https://viridiparente.com/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "fetched": "2026-08-06T14:08:46Z",
+  "post_count": 20
+}
