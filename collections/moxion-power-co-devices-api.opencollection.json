@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Moxion Power Developer Device Faults Devices API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.moxionpower.com/developer/v1/devices"
+          },
+          "docs": "Lists details about all devices belonging to an Organization."
+        },
+        {
+          "info": {
+            "name": "Get Device Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.moxionpower.com/developer/v1/devices/:deviceId",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Mobile Power Unit device."
+              }
+            ]
+          },
+          "docs": "Returns the details of a single device."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

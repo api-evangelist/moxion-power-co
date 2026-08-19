@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Moxion Power Developer Device Faults Device Location API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Device Location",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Device Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.moxionpower.com/developer/v1/devices/:deviceId/locations",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Mobile Power Unit device."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Inclusive start of the time range (ISO 8601). Range [start, end); max duration 1 day."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "Exclusive end of the time range (ISO 8601). Range [start, end); max duration 1 day."
+              }
+            ]
+          },
+          "docs": "Gets a set of Timestamped Locations for a device. The time range of locations is specified with the start and end parameters, including start and excluding end - [start, end). The max duration cannot exceed 1 day."
+        },
+        {
+          "info": {
+            "name": "Get Latest Device Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.moxionpower.com/developer/v1/devices/:deviceId/locations/latest",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Mobile Power Unit device."
+              }
+            ]
+          },
+          "docs": "Returns the most recent Timestamped Location for the specified device."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Moxion Power Developer Device Faults Fleet Snapshot (AEMP) API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fleet Snapshot (AEMP)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AEMP Fleet Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.moxionpower.com/developer/v1/fleet/snapshot"
+          },
+          "docs": "Get the AEMP 2.0 (ISO 15143-3 v.20190501) compliant Fleet Snapshot. Note that equipment is paged and returned in order of creation time. Snapshot timestamp is consistent within a single page but is not guaranteed across pages. Response type is JSON."
+        },
+        {
+          "info": {
+            "name": "AEMP Extended Fleet Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.moxionpower.com/developer/v1/fleet/snapshot/extended"
+          },
+          "docs": "Get the extended AEMP 2.0 Fleet Snapshot. This endpoint differs from the standard AEMP fleet snapshot by including data from outside of the standard AEMP spec, but in the same snapshot format. Equipment is paged and returned in order of creation time. Response type is JSON."
+        },
+        {
+          "info": {
+            "name": "AEMP Extended Fleet Faults Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://api.moxionpower.com/developer/v1/fleet/faults/snapshot"
+          },
+          "docs": "Get the extended AEMP 2.0 Fleet Fault Snapshot. This endpoint extends AEMP 2.0 outside of its specification as faults are not typically included as a fleet snapshot; the API format follows that of the AEMP Snapshot. Returns an array of Equipment and their associated ACTIVE Faults; a zero-length Faults array suggests no faults are currently known. Equipment is paged and returned in order of creation time. Response type is JSON."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
