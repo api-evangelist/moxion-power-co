@@ -121,6 +121,8 @@ apis:
   humanURL: https://developer.moxionpower.com/docs/getting-started
   baseURL: http://api.moxionpower.com/developer/v1
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
