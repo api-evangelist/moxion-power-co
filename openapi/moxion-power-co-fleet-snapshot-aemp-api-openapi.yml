@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Moxion Power Developer Device Faults Fleet Snapshot (AEMP) API
+  title: Moxion Power Developer Device Faults Fleet Snapshot (AEMP) Fleet Snapshot (AEMP) API
   version: v1
   description: 'REST API sharing resources and telemetry about an organization''s Moxion Mobile Power Units (MPUs): device listing/details, GPS location, time-series device metrics, active fault codes, and AEMP 2.0 (ISO 15143-3 v.20190501) compliant fleet-snapshot endpoints.'
   contact:
@@ -62,10 +62,10 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   responses:
-    RateLimited:
-      description: Rate limit or data quota exceeded.
     Unauthorized:
       description: Missing or invalid bearer token.
+    RateLimited:
+      description: Rate limit or data quota exceeded.
   securitySchemes:
     bearerAuth:
       type: http

@@ -19,6 +19,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "moxion-power-co-device-faults-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "moxion-power-co-device-location-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "moxion-power-co-device-metrics-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "moxion-power-co-devices-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "moxion-power-co-fleet-snapshot-aemp-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "moxion-power-co-organizations-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

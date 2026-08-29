@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Moxion Power Developer Device Faults Organizations API
   version: v1
@@ -31,10 +31,10 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   responses:
-    RateLimited:
-      description: Rate limit or data quota exceeded.
     Unauthorized:
       description: Missing or invalid bearer token.
+    RateLimited:
+      description: Rate limit or data quota exceeded.
   securitySchemes:
     bearerAuth:
       type: http

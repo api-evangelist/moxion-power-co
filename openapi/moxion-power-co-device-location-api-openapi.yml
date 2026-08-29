@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Moxion Power Developer Device Faults Device Location API
   version: v1
@@ -56,13 +56,6 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
-  responses:
-    RateLimited:
-      description: Rate limit or data quota exceeded.
-    NotFound:
-      description: The requested resource was not found.
-    Unauthorized:
-      description: Missing or invalid bearer token.
   parameters:
     End:
       name: end
@@ -87,6 +80,13 @@ components:
       description: Identifier of the Mobile Power Unit device.
       schema:
         type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid bearer token.
+    NotFound:
+      description: The requested resource was not found.
+    RateLimited:
+      description: Rate limit or data quota exceeded.
   securitySchemes:
     bearerAuth:
       type: http
