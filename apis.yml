@@ -144,6 +144,9 @@ apis:
   - type: APIReference
     url: https://developer.moxionpower.com/reference
 common:
+- type: CapabilityMap
+  url: capabilities/moxion-power-co-capability-edges.yml
+  name: Moxion Power Co Business Capability Map
 - type: DeveloperPortal
   url: https://developer.moxionpower.com
 - type: Documentation

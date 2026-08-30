@@ -1,0 +1,36 @@
+slug: moxion-power-co
+provider: Moxion Power Co
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Infrastructure
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Fleet Snapshot (AEMP)
+  spec_file: moxion-power-co-fleet-snapshot-aemp-api-openapi.yml
+  capability_id: BC-5040.40
+  capability_id_l1: BC-5040
+  capability_name: Plant & Equipment Management
+  confidence: 0.75
+  evidence: '"AEMP Fleet Snapshot", "AEMP Extended Fleet Faults Snapshot" — "AEMP 2.0 (ISO 15143-3 v.20190501)
+    compliant fleet-snapshot endpoints"'
+  reason: AEMP/ISO 15143-3 is the construction equipment telematics interoperability standard; fleet snapshots
+    feed plant and equipment management systems. Clearly construction plant fleet management rather than
+    any IT capability.
+- tag: Device Location
+  spec_file: moxion-power-co-device-location-api-openapi.yml
+  capability_id: BC-5040.40
+  capability_id_l1: BC-5040
+  capability_name: Plant & Equipment Management
+  confidence: 0.7
+  evidence: '"Get Latest Device Location" — "real-time GPS location" of MPUs on "construction sites"'
+  reason: GPS tracking of mobile power units is deployment/location management of construction plant and
+    equipment (BC-5040.40). The AEMP/ISO 15143-3 lineage of the spec confirms this is construction equipment
+    telematics.
