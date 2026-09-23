@@ -38,14 +38,6 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   parameters:
-    End:
-      name: end
-      in: query
-      required: true
-      description: Exclusive end of the time range (ISO 8601). Range [start, end); max duration 1 day.
-      schema:
-        type: string
-        format: date-time
     Start:
       name: start
       in: query
@@ -61,13 +53,21 @@ components:
       description: Identifier of the Mobile Power Unit device.
       schema:
         type: string
+    End:
+      name: end
+      in: query
+      required: true
+      description: Exclusive end of the time range (ISO 8601). Range [start, end); max duration 1 day.
+      schema:
+        type: string
+        format: date-time
   responses:
-    Unauthorized:
-      description: Missing or invalid bearer token.
     NotFound:
       description: The requested resource was not found.
     RateLimited:
       description: Rate limit or data quota exceeded.
+    Unauthorized:
+      description: Missing or invalid bearer token.
   securitySchemes:
     bearerAuth:
       type: http

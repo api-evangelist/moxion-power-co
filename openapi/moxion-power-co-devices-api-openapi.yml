@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Moxion Power Developer Device Faults Devices API
+  title: Moxion Power Developer Devices API
   version: v1
   description: 'REST API sharing resources and telemetry about an organization''s Moxion Mobile Power Units (MPUs): device listing/details, GPS location, time-series device metrics, active fault codes, and AEMP 2.0 (ISO 15143-3 v.20190501) compliant fleet-snapshot endpoints.'
   contact:
@@ -48,13 +48,6 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid bearer token.
-    NotFound:
-      description: The requested resource was not found.
-    RateLimited:
-      description: Rate limit or data quota exceeded.
   parameters:
     DeviceId:
       name: deviceId
@@ -63,6 +56,13 @@ components:
       description: Identifier of the Mobile Power Unit device.
       schema:
         type: string
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+    RateLimited:
+      description: Rate limit or data quota exceeded.
+    Unauthorized:
+      description: Missing or invalid bearer token.
   securitySchemes:
     bearerAuth:
       type: http

@@ -1,12 +1,7 @@
 {
   "provider": "moxion-power-co",
   "sources": [
-    "moxion-power-co-device-faults-api-openapi.yml",
-    "moxion-power-co-device-location-api-openapi.yml",
-    "moxion-power-co-device-metrics-api-openapi.yml",
-    "moxion-power-co-devices-api-openapi.yml",
-    "moxion-power-co-fleet-snapshot-aemp-api-openapi.yml",
-    "moxion-power-co-organizations-api-openapi.yml"
+    "_ae-authored/moxion-power-co-openapi.yml"
   ],
   "outputs": [
     "moxion-power-co-device-faults-api-openapi.yml",
@@ -20,13 +15,16 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "moxion-power-co-device-faults-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "moxion-power-co-device-location-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "moxion-power-co-device-metrics-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "moxion-power-co-devices-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "moxion-power-co-fleet-snapshot-aemp-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "moxion-power-co-organizations-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "moxion-power-co-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "moxion-power-co-device-faults-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moxion-power-co-device-location-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moxion-power-co-device-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moxion-power-co-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moxion-power-co-fleet-snapshot-aemp-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "moxion-power-co-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
