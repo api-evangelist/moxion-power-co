@@ -56,6 +56,7 @@ tags:
 - Clean Energy
 - Construction
 - Device Metrics
+- Defunct
 apis:
 - aid: moxion-power-co:moxion-power-co-device-faults-api
   name: Moxion Power Co Device Faults API
@@ -213,3 +214,6 @@ x-enrichment:
   pass: local-v1
 x-merged-from:
 - moxion-power
+x-status: defunct
+x-defunct-date: '2024-08-12'
+x-status-basis: 'Filed Chapter 7 bankruptcy liquidation in Delaware on 2024-08-12 (SFGate, https://www.sfgate.com/tech/article/moxion-bankruptcy-filing-sued-layoffs-19656970.php; Latitude Media, https://www.latitudemedia.com/news/portable-battery-startup-moxion-is-bankrupt-what-happened/). Checked 2026-09-24: www.moxionpower.com and api.moxionpower.com/developer/v1 give no HTTP response. roadmap#688'
