@@ -37,7 +37,22 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
+  responses:
+    RateLimited:
+      description: Rate limit or data quota exceeded.
+    NotFound:
+      description: The requested resource was not found.
+    Unauthorized:
+      description: Missing or invalid bearer token.
   parameters:
+    Start:
+      name: start
+      in: query
+      required: true
+      description: Inclusive start of the time range (ISO 8601). Range [start, end); max duration 1 day.
+      schema:
+        type: string
+        format: date-time
     DeviceId:
       name: deviceId
       in: path
@@ -53,21 +68,6 @@ components:
       schema:
         type: string
         format: date-time
-    Start:
-      name: start
-      in: query
-      required: true
-      description: Inclusive start of the time range (ISO 8601). Range [start, end); max duration 1 day.
-      schema:
-        type: string
-        format: date-time
-  responses:
-    RateLimited:
-      description: Rate limit or data quota exceeded.
-    NotFound:
-      description: The requested resource was not found.
-    Unauthorized:
-      description: Missing or invalid bearer token.
   securitySchemes:
     bearerAuth:
       type: http

@@ -48,13 +48,6 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
-  responses:
-    RateLimited:
-      description: Rate limit or data quota exceeded.
-    NotFound:
-      description: The requested resource was not found.
-    Unauthorized:
-      description: Missing or invalid bearer token.
   parameters:
     DeviceId:
       name: deviceId
@@ -63,6 +56,13 @@ components:
       description: Identifier of the Mobile Power Unit device.
       schema:
         type: string
+  responses:
+    RateLimited:
+      description: Rate limit or data quota exceeded.
+    NotFound:
+      description: The requested resource was not found.
+    Unauthorized:
+      description: Missing or invalid bearer token.
   securitySchemes:
     bearerAuth:
       type: http
