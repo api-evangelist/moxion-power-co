@@ -57,12 +57,12 @@ components:
       schema:
         type: string
   responses:
-    RateLimited:
-      description: Rate limit or data quota exceeded.
-    NotFound:
-      description: The requested resource was not found.
     Unauthorized:
       description: Missing or invalid bearer token.
+    NotFound:
+      description: The requested resource was not found.
+    RateLimited:
+      description: Rate limit or data quota exceeded.
   securitySchemes:
     bearerAuth:
       type: http
